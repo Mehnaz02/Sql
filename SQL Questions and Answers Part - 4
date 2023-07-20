@@ -1,0 +1,88 @@
+select * from programmer;
+select * from software;
+select * from studies;
+
+select pname,salary from programmers where salary=any (select salary from programmers p group by salary having salary=programmers.salary and count(*)>1);
+
+select * from software inner join programmers on
+software.pname=programmers.pname 
+ where gender='m' and salary >3000;
+ 
+ select software.* from programmers p software s where p.pname=s.pname and salary>3000 and gender='m';
+ 
+ select * from software inner join programmers on
+ software.pname=programmers.pname
+ where gender='f' and developin='pascal';
+ 
+ select * from programmers where year(dob) <1990;
+ select *  from software inner join programmers on
+ software.pname=programmers.pname left join studies on
+ programmers.pname=studies.pname 
+ where developin='c' and gender='f' and institue='pragathi';
+ 
+ select developin ,count(developin) as countofpac, count(sold) as countofsold,institue,sum(sold*scost) as salesvalues  from software , studies  where 
+ software.pname=studies.pname
+ group by developin,institue
+ order by institue;
+ 
+ select * from software left join programmers on
+ software.pname=programmers.pname right join studies on
+ studies.pname=programmers.pname
+ where
+ gender='m' and developin='dbase'
+ and institue=(select institue from studies group by institue  having count(institue)=(select max(count(institue)) from studies group by institue));
+ 
+select * from software inner join  programmers on 
+software.pname=programmers.pname
+where (gender='m' and year(dob) < 1965 ) or ( gender='f' and year(dob) > 1975)
+ 
+ 
+select *  from software left join programmers on
+software.pname=programmers.pname
+where 
+developin not in (prof1)  
+ 
+ 
+ 
+ select * from software left join programmers on 
+ software.pname=programmers.pname left join  studies on
+ programmers.pname=studies.pname
+ where gender='m' and institue='sabhari'
+ 
+ 
+select pname from programmers where pname not in (select pname from software)
+ 
+ select sum(scost) from software , studies  where
+ software.pname=studies .pname and
+ institue='apple'
+  select a.pname , a.doj 
+  from programmers  a programmers b where a.doj=b.doj and a.pname=b.pname
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,66 @@
+
+
+select * from programmer;
+select * from software;
+select * from studies;
+select * into year_of_ex
+from (
+select *,
+datediff(year,doj,getdate()) as current_yr_ex from programmer 
+)j
+select * from year_of_ex where current_yr_ex <1;
+select * from year_of_ex	
+select * from old_age;
+select count(pname) from old_age where gender='f' and age>24 and (prof1='c' or prof2='c');
+----(32)select pname from programmer where  week(dob)=week(getdate());
+
+select * from year_of_ex where current_yr_ex=2;
+Calculate the amount to be recovered for those packages whose
+development cost has not been recovered?
+select (dcost-(scost*sold)),title from software where dcost >(sold*scost)
+ select title from software where sold=0;
+ select scost from software where pname='mary';
+ select distinct institue from studies;
+ select pname from programmers where pname like '%A%A%' ;
+ select pname from programmers where len(pname)=5;
+ select count(*) from programmers where gender='f' and (prof1=('cobol') or prof2=('cobol')) and datediff(year,doj,getdate())>2 ;
+ select min(len(pname)) from programmers   
+ select avg(dcost) from software where developin= 'cobol';
+ select pname ,gender,dob ,doj from programmer;
+ select eomonth(dob) from programmer ;
+ select *,salary from programmer where gender='m' and prof!='cobol' or prof1!='cobol';
+
+  select title,scost,dcost ,dcost-scost diff from software
+ order by 4 desc;
+  select title,scost,dcost ,dcost-scost from software
+ order by scost ,dcost desc;
+  select title,scost,dcost ,dcost-scost as diffr from software
+ order by title,scost ,dcost,diffr desc;
+ 
+  select title from software where title like '% %';
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
