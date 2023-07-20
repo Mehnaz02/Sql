@@ -1,0 +1,117 @@
+select * from programmer;
+select * from software;
+select * from studies;
+
+select count(title) , developin from software 
+group by developin;
+
+select count(title), pname from software 
+group by name;
+
+select gender,count(*) from programmers 
+group by gender
+
+select developin,max(scost),max(sold) from software group by developin;
+
+select year(dob),count(pname) from programmers
+group by year(dob);
+
+select year(doj),count(pname) from programmers
+group by year(doj);
+
+select month(dob) ,count(pname) from programmers 
+group by month(dob);
+
+select month(doj) ,count(pname) from programmers 
+group by month(doj);
+
+select prof1, count(prof1) from programmers
+group by prof1;
+
+select prof2, count(prof2) from programmers
+group by prof2;
+
+
+select salary, count(pname) from programmers
+ group by salary;
+ 
+select institue , count(pname) from studies 
+group by institue;
+ 
+ select course , count(pname) from studies 
+group by course;
+ 
+select sum(dcost) ,developin from software group by developin;
+
+select developin,sum(scost) from software group by developin;
+
+select sum(dcost),pname from software group by pname;
+
+select pname, sum(scost*sold) from software group by pname
+select pname,count(title) from software group by pname;
+select developin,sum(scost) from software group by developin; 
+ 
+ select pname,max(Scost),min(scost) from software group by pname;
+ 
+ 21--part 2
+ 
+ select developin,avg(dcost),avg(scost) from software
+ group by developin
+ 
+ select institue ,count(course),avg(course_fee) from studies 
+ group by institue
+ 
+ select institue, count(pname) from studies
+ group by institue;
+ 
+ select pname,gender from programmers
+  order by gender
+ 
+select pname ,title from programmers 
+order by pname;
+ 
+ select developin,count(title) from software
+ group by developin 
+ 
+  select developin,count(title) from software
+  where dcost < 1000
+ group by developin 
+ 
+ select  avg(dcost-scost) as diff,developin from software
+ group by developin
+ 
+ select sum(scost),sum(dcost),SUM(DCOST-(SOLD*SCOST))
+ from software 
+ group by pname
+ having sum(dcost)>sum(sold*scost)
+ 
+ select max(salary),min(salary) , avg(salary)
+ from programmers
+ where salary>2000
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
